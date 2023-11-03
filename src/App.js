@@ -1,5 +1,4 @@
 import axios from "axios";
-require("dotenv").config();
 
 const App = async () => {
 
@@ -11,8 +10,8 @@ const App = async () => {
       area: 'sat'
     },
     headers: {
-      'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_HOST,
-      'X-RapidAPI-Host': process.env.REACT_APP_RAPID_API_KEY
+      'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
+      'X-RapidAPI-Host': process.env.REACT_APP_RAPID_API_HOST 
     }
   };
 
