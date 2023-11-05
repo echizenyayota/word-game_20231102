@@ -29,7 +29,7 @@ const App = () => {
     }
   };
 
-  console.log(words);
+  console.log(words && words.quizlist);
 
   useEffect(() => {
     if(chosenLevel) getRandomWords();
@@ -55,11 +55,13 @@ const App = () => {
         </select>
       </div>}
 
-      {chosenLevel && <div className="question-area">
+      {chosenLevel && words && <div className="question-area">
         <h1>Welcome to level: {chosenLevel}</h1>
-        <div className="question-box">
-
-        </div>
+        {words.quizlist.map(question => (
+          <div className="question-box">
+            <p>{question.correct}</p>
+          </div>
+        ))}
       </div>}
 
     </div>
