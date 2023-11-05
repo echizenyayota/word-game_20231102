@@ -5,6 +5,7 @@ const App = () => {
 
   const [chosenLevel, setChosenLevel] = useState("2");
   const [words, setWords] = useState(null);
+  const [correctAnswers, setCorrectAnswers] = useState([]);
 
   const getRandomWords = async() => {
     const options = {
@@ -35,9 +36,14 @@ const App = () => {
     if(chosenLevel) getRandomWords();
   }, [chosenLevel]);
 
-  const checkAnswer = (optionIndex, correctAnswer) => {
+  const checkAnswer = (option, optionIndex, correctAnswer) => {
     console.log(optionIndex, correctAnswer);
-  }
+    if (optionIndex === correctAnswer) {
+      setCorrectAnswers([...correctAnswers, option]);
+    }
+  };
+
+  console.log(correctAnswers);
   
 
   return (
@@ -70,7 +76,7 @@ const App = () => {
               {question.option.map((option, optionIndex) => (
                 <div className="question-button">
                   <button
-                    onClick={() => checkAnswer(optionIndex + 1, question.correct)}
+                    onClick={() => checkAnswer(option, optionIndex + 1, question.correct)}
                   >
                     {option}
                   </button>
