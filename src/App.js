@@ -57,13 +57,13 @@ const App = () => {
 
       {chosenLevel && words && <div className="question-area">
         <h1>Welcome to level: {chosenLevel}</h1>
-        {words.quizlist.map(question => (
+        {words.quizlist.map((question, questionIndex) => (
           <div className="question-box">
-            {question.quiz.map(tip => (
-              <p>{tip}</p>
+            {question.quiz.map((tip, _index) => (
+              <p key={_index}>{tip}</p>
             ))}
             <div className="question-buttons">
-              {question.option.map(option => (
+              {question.option.map((option, optionIndex) => (
                 <div className="question-button">
                   <button>{option}</button>
                 </div>
