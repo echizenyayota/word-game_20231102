@@ -62,6 +62,13 @@ const App = () => {
             {question.quiz.map(tip => (
               <p>{tip}</p>
             ))}
+            <div className="question-buttons">
+              {question.option.map(option => (
+                <div className="question-button">
+                  <button>{option}</button>
+                </div>
+              ))}
+            </div>
             <p>{question.correct}</p>
           </div>
         ))}
