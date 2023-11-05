@@ -59,6 +59,9 @@ const App = () => {
         <h1>Welcome to level: {chosenLevel}</h1>
         {words.quizlist.map(question => (
           <div className="question-box">
+            {question.quiz.map(tip => (
+              <p>{tip}</p>
+            ))}
             <p>{question.correct}</p>
           </div>
         ))}
