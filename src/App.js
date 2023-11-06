@@ -6,6 +6,7 @@ const App = () => {
   const [chosenLevel, setChosenLevel] = useState("2");
   const [words, setWords] = useState(null);
   const [correctAnswers, setCorrectAnswers] = useState([]);
+  const [clicked, setClicked] = useState([]);
 
   const getRandomWords = async() => {
     const options = {
@@ -41,6 +42,7 @@ const App = () => {
     if (optionIndex === correctAnswer) {
       setCorrectAnswers([...correctAnswers, option]);
     }
+    setClicked([...clicked, option]);
   };
 
   console.log(correctAnswers);
@@ -76,6 +78,7 @@ const App = () => {
               {question.option.map((option, optionIndex) => (
                 <div className="question-button">
                   <button
+                    disabled={clicked.includes(option)}
                     onClick={() => checkAnswer(option, optionIndex + 1, question.correct)}
                   >
                     {option}
