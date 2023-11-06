@@ -45,9 +45,10 @@ const App = () => {
     setClicked([...clicked, option]);
   };
 
-  console.log(correctAnswers);
-  
+  console.log("correctAnswers",correctAnswers);
 
+  console.log("clicked", clicked);
+  
   return (
     <div className="App">
 
@@ -83,6 +84,7 @@ const App = () => {
                   >
                     {option}
                   </button>
+                  {correctAnswers.includes(option) && <p>Correct!</p>}
                 </div>
               ))}
             </div>
