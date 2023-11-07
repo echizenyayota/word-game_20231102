@@ -10,26 +10,7 @@ const App = () => {
   const [score, setScore] = useState(0);
 
   const getRandomWords = async() => {
-    const options = {
-      method: 'GET',
-      url: 'https://twinword-word-association-quiz.p.rapidapi.com/type1/',
-      params: {
-        level: chosenLevel,
-        area: 'sat'
-      },
-      headers: {
-        'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
-        'X-RapidAPI-Host': process.env.REACT_APP_RAPID_API_HOST 
-      }
-    };
-  
-    try {
-      const response = await axios.request(options);
-      console.log(response.data);
-      setWords(response.data);
-    } catch (error) {
-      console.error(error);
-    }
+    
   };
 
   console.log(words && words.quizlist);
