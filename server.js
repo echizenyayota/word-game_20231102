@@ -13,11 +13,14 @@ app.get("/", (req, res) => {
 });
 
 app.get("/results", async (req, res) => {
+  const passedLevel = req.query.level;
+  console.log(passedLevel);
+  
   const options = {
     method: 'GET',
     url: 'https://twinword-word-association-quiz.p.rapidapi.com/type1/',
     params: {
-      level: "3",
+      level: passedLevel,
       area: 'sat'
     },
     headers: {
@@ -29,7 +32,6 @@ app.get("/results", async (req, res) => {
   try {
     const response = await axios.request(options);
     res.json(response.data);
-    console.log(response.data);
   } catch (error) {
     console.error(error);
   }
