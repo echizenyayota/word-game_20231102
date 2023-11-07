@@ -55,7 +55,7 @@ const App = () => {
   console.log("clicked", clicked);
   
   return (
-    <div className="App">
+    <div className="app">
 
       {!chosenLevel && <div className="level-selector">
         <h1>Word Association App</h1>
@@ -99,7 +99,8 @@ const App = () => {
             </div>
           ))}
         </div>
-
+        
+        <button onClick={() => setChosenLevel(null)}>Go Back</button>
       </div>}
 
     </div>
