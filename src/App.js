@@ -10,7 +10,22 @@ const App = () => {
   const [score, setScore] = useState(0);
 
   const getRandomWords = async() => {
-    
+    const options = {
+      method: 'GET',
+      url: 'http://localhost:8000/results',
+      params: {
+        level: chosenLevel,
+        area: 'sat'
+      },
+    };
+
+    try {
+      const response = await axios.request(options);
+      console.log(response.data);
+      setWords(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   console.log(words && words.quizlist);
